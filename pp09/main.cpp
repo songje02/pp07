@@ -2,10 +2,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
 #pragma comment(lib, "opengl32")
 
+float move = -0.001f;
 bool isPressed;
+float X1 = 0.0f;
+float X2 = -0.05f;
+float X3 = 0.05f;
 
 static void error_callback(int error, const char* description)
 {
@@ -60,6 +63,16 @@ void Enemy() {
     glEnd();
 }
 
+void Enemy1() {
+    //»ï°¢Çü(Àû)
+    glBegin(GL_TRIANGLES);
+    glColor3f(1.0f, 0.0f, 0.0f);
+    glVertex2f(X1, 0.0f);
+    glVertex2f(X2, -0.1f);
+    glVertex2f(X3, -0.1f);
+    glEnd();
+}
+
 int main(void)
 {
     GLFWwindow* window;
@@ -85,11 +98,15 @@ int main(void)
 
         glClearColor(0.7f, 0.7f, 0.7f, 1);
         glClear(GL_COLOR_BUFFER_BIT);
-
-        Enemy();
+        
+        Enemy1();
+        X1 += move;
+        X2 += move;
+        X3 += move;
 
         if (isPressed) {
             Jump_player();
+            
         }
         else if (isPressed == false) {
             player();
