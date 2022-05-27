@@ -117,7 +117,7 @@ int main(void)
         glfwGetFramebufferSize(window, &width, &height);
         ratio = width / (float)height;
 
-        glClearColor(0.3f, 0.3f, 0.3f, 1);
+        glClearColor(0, 0, 0, 1);
         glClear(GL_COLOR_BUFFER_BIT);
 
         p1.draw();
